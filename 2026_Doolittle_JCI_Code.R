@@ -1,5 +1,5 @@
 ##Download supplementary .xlsx files and place in working directory:
-#Apoptosis_resistance_geneset_Troiani.xlsx
+#Apoptosis_resistance_geneset.xlsx
 #CORDENONSI_YAP_CONSERVED_SIGNATURE.v2024.1_mouse.xlsx
 
 ##Install and load all packages
@@ -137,7 +137,7 @@ ggsave(filename = "Mac_SenMayo.svg", plot = a, height = 3, width = 5)
 
 #Anti-apoptosis GSEA
 #BMSCs
-anti_apop_T <- read_xlsx("Apoptosis_resistance_geneset_Troiani.xlsx")
+anti_apop_T <- read_xlsx("Apoptosis_resistance_geneset.xlsx")
 BMSC_AntiApop <- GSEA(geneList = BMSC_geneList, TERM2GENE = anti_apop_T)
 a<- gseaplot(BMSC_AntiApop, geneSetID = 1, by="runningScore")
 ggsave(filename = "BMSC_AntiApop.svg", plot = a, height = 3, width = 5)
@@ -428,3 +428,4 @@ EFig8m <- ggplot(cell_counts, aes(x = as.factor(cluster), y = proportion, fill =
         axis.text.x = element_text(angle = 45, vjust = 1, hjust=1), axis.text = element_text(size=11, colour = "black")) + 
   scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
 ggsave(filename = "EFig8m.svg", plot = EFig8m, width = 5, height = 5)
+
